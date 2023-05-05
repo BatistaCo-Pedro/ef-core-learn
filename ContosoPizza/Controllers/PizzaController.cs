@@ -41,7 +41,9 @@ public class PizzaController : ControllerBase
     public IActionResult Create(Pizza newPizza)
     {
         var pizza = _service.Create(newPizza);
-        return CreatedAtAction(nameof(GetById), new { id = pizza!.Id }, pizza);
+        var temp = CreatedAtAction(nameof(GetById), new { id = pizza!.Id }, pizza);
+        Console.WriteLine(temp);
+        return temp;
     }
 
     [HttpPut("{id}/addtopping")]
